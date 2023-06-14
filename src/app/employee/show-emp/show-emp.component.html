@@ -1,0 +1,53 @@
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary float-right" 
+        data-toggle="modal" data-target="#exampleModal"
+        (click)="addClick()" data-backdrop="static" data-keyboard="false" >
+    Add Employee <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"/>
+                  </svg>
+</button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">{{ModalTitle}}</h5>
+          <button type="button" class="close" 
+                  data-dismiss="modal" aria-label="Close"
+                    (click)="closeClick()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <app-add-edit-emp [emp]="emp" *ngIf="ActivateAddEditEmpComp"></app-add-edit-emp>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Employee Id</th>
+            <th>Name</th>
+            <th>Department</th>
+            <th>Join Date</th>
+        </tr>
+        
+    </thead>
+    <tbody>
+        <tr *ngFor="let employee of EmployeeList">
+            <td>{{employee.employee_id}}</td>
+            <td>{{employee.employee_name}}</td>
+            <td>{{employee.department_name}}</td>
+            <td>{{employee.date_of_join}}</td>
+        </tr>
+    </tbody>
+
+</table>
